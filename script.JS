@@ -20,4 +20,38 @@ var petsData = [
       photo: "https://learnwebcode.github.io/json-example/images/cat-1.jpg"
     }
   ];
+
+  function foods(food){
+    return `<h4>Favorite Food</h4>
+            <ul>
+            ${food.map(item => `<li class='foods-list'>${item}</li>`).join('')}
+           </ul>`
+  }
+
+  function Age(birthYear){
+    let age = new Date().getFullYear() - birthYear
+    if(age == 1){
+      return '1 year old'
+    }else if(age == 0){
+      return 'Baby'
+    }else if (age > 1){
+      return `${age} years old`
+    }
+
+  }
+
+  function TempletePets(pets){
+    return `<div class="animal"><img class="pet-photo" src = "${pets.photo}"/>
+    <h2 class='pet-name'>${pets.name} <span class='species'>(${pets.species})</span></h2>
+    <p><strong>Age:</strong> ${Age(pets.birthYear)}</p>
+    ${pets.favFoods? foods(pets.favFoods) : ''}</div>`
+  }
+  
+  
+  document.getElementById('app').innerHTML = `
+  <h1 class='app-title'>Pets (${petsData.length} results)</h1>
+
+  ${petsData.map( TempletePets ).join('')} 
+
+  <p class='footer'>These ${petsData.length} pets were added recently. Check back soon for more update.</p>`
   
