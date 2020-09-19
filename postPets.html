@@ -10,7 +10,7 @@
     <section class="animal">
         <h1>Post Pets</h1>
         <div id="formularios">  
-            <form  method="POST" action="index.html" id="formulario">
+            <form  method="POST" action="" id="formulario">
                <fieldset><legend>Post Pets</legend>
                 <p><label for="nome">Nome:
                     <input type="text" name="nome" id="txt-nome" size="33" maxlength="35">
@@ -33,26 +33,35 @@
                 <p><label for="foto">Foto:
                     <input type="url" name="foto" id="txt-foto">
                 </label></p>
-                <button   onclick="salvarPetsData()">Enviar</button>
+                <input type="submit" name="enviar" value="Enviar" onclick="salvarPetsData()">
                </fieldset>
             </form>
         </div>
+        
     </section>
+    <div id="res">
+        Posts:
+    </div>
     <script>
 
 function salvarPetsData(){
+function salvarPetsData(event){
     //Obter os dados do formulário.
     var data = { }
 
     data.nome = document.getElementById('txt-nome').value
-    
-    
-    alert('ola' + nome.value)
-  
-
+    data.especie = document.getElementById('txt-especie').value
+    data.food1 = document.getElementById('txt-food1').value
+    data.food2 = document.getElementById('txt-food2').value
+    data.food3 = document.getElementById('txt-food3').value
+    data.nasc = document.getElementById('txt-data-nasc').value
+    data.foto = document.getElementById('txt-foto').value
+    var msg = document.getElementById('res')
+     msg.innerHTML += `nome: ${data.nome}`
+     event.
   }
   
-  salvarPetsData()
+
     </script>
 </body>
 </html>
