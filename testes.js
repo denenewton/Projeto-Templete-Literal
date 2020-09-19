@@ -7,15 +7,15 @@ var sessao =
     }
 }
 
-var tiposCaes = [
+sessao.tiposCaes = [
     'Barce',
     'Pequines',
     'Pastor Alemão'
 ]
-var vetorSessao = []
-var copia = Object.assign({}, sessao)
 
-vetorSessao.push(copia)
-//vetorSessao.push(tiposCaes)
+var dados = {
 
-console.log(vetorSessao)
+}
+dados.nomes = 'daniel'
+
+console.log(dados)

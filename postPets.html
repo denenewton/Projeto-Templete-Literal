@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="Pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postagem de Pets</title>
+    <link rel="stylesheet" href="stilo.css">
+</head>
+<body>
+    <section class="animal">
+        <h1>Post Pets</h1>
+        <div id="formularios">  
+            <form  method="POST" action="index.html" id="formulario">
+               <fieldset><legend>Post Pets</legend>
+                <p><label for="nome">Nome:
+                    <input type="text" name="nome" id="txt-nome" size="33" maxlength="35">
+                </label></p>
+                <p><label for="especie">Especie:
+                    <input type="text" name="especie" id="txt-especie">
+                </label></p>
+                <p><label for="food1">1-Comida Favorita:
+                    <input type="text" name="food1" id="txt-food1">
+                </label></p>
+                <p><label for="food2">2-Comida Favorita:
+                    <input type="text" name="food2" id="txt-food2">
+                </label></p>
+                <p><label for="food3">3-Comida Favorita:
+                    <input type="text" name="food3" id="txt-food3">
+                </label></p>
+                <p><label for="data-nasc">Nascimento:
+                    <input type="date" name="data-nasc" id="txt-data-nasc">
+                </label></p>
+                <p><label for="foto">Foto:
+                    <input type="url" name="foto" id="txt-foto">
+                </label></p>
+                <button   onclick="salvarPetsData()">Enviar</button>
+               </fieldset>
+            </form>
+        </div>
+    </section>
+    <script>
+
+function salvarPetsData(){
+    //Obter os dados do formulário.
+    var data = { }
+
+    data.nome = document.getElementById('txt-nome').value
+    
+    
+    alert('ola' + nome.value)
+  
+
+  }
+  
+  salvarPetsData()
+    </script>
+</body>
+</html>
