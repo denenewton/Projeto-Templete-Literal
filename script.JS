@@ -27,16 +27,17 @@ var petsData = [
   }
 
   function Delete(id){
-     window.localStorage.removeItem(id)
+     window.localStorage.removeItem(id) //Remove um item do LocalStorange.
+     document.location.reload()// recarrega a pagina
   }
   
   
-  function foods(food,id){
+  function foods(food){
     return `<h4>Favorite Food</h4>
             <ul>
             ${food.map(item => `<li class='foods-list'>${item}</li>`).join('')}
            </ul>
-           <button id="b-delete" onClick ="Delete(${id})">Delete</button>`
+           `
   }
 
   function Age(birthYear){
@@ -56,7 +57,7 @@ var petsData = [
     return `<div class="animal"><img class="pet-photo" src = "${pets.photo}"/>
     <h2 class='pet-name'>${pets.name} <span class='species'>(${pets.species})</span></h2>
     <p><strong>Age:</strong> ${Age(pets.birthYear)}</p>
-    ${pets.favFoods? foods(pets.favFoods,pets.id) : ''}</div>`
+    ${pets.favFoods? foods(pets.favFoods) : ''}<button id="b-delete" onClick ="Delete(${pets.id})">Delete</button></div>`
   }
   
   

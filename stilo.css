@@ -1,6 +1,6 @@
 body {
     font-family: sans-serif;
-    background-color: #DEDEDE;
+    background: #dedede;
     color: #333;
     padding: 20px 0 28px 0;
     margin: 0;
@@ -18,14 +18,21 @@ body {
   }
   
   .animal {
+    position: relative;
     max-width: 650px;
+    height: 205px;
     padding: 20px;
     margin: 30px auto;
     background-color: #FFF;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
     overflow: hidden;
-    
     border-radius: 1px;
+  }
+  .animal button#b-delete{
+    display:block;
+    position: absolute;;
+    top:200px;
+    left: 600px;
   }
   section.animal{
     height: auto;
