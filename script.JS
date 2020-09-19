@@ -20,12 +20,23 @@ var petsData = [
       photo: "https://learnwebcode.github.io/json-example/images/cat-1.jpg"
     }
   ];
+  let key = window.localStorage.length 
+  for(let i = 0 ; i < key; i++){
+    let pets = JSON.parse(window.localStorage.getItem(`${localStorage.key(i)}`))
+  petsData.unshift(pets)
+  }
+
+  function Delete(id){
+     window.localStorage.removeItem(id)
+  }
   
-  function foods(food){
+  
+  function foods(food,id){
     return `<h4>Favorite Food</h4>
             <ul>
             ${food.map(item => `<li class='foods-list'>${item}</li>`).join('')}
-           </ul>`
+           </ul>
+           <button id="b-delete" onClick ="Delete(${id})">Delete</button>`
   }
 
   function Age(birthYear){
@@ -39,29 +50,13 @@ var petsData = [
     }
 
   }
-
-  function salvarPetsData(){
-    //Obter os dados do formulário.
-    var nome = document.getElementById('txt-nome').value
-    let especie = document.getElementById('txt-especie').value
-    let food1 = document.getElementById('txt-food1').value
-    let food2 = document.getElementById('txt-food2').value
-    let food3 = document.getElementById('txt-food3').value
-    let nasc = document.getElementById('txt-data-nasc').value
-    let foto = document.getElementById('txt-foto').value
-     
-  window.alert(`Seus dados foram atualizado! ${name}`)
-  console.log(`Seus dados foram atualizado! ${name}`)
-  
-
-  }
   
 
   function TempletePets(pets){
     return `<div class="animal"><img class="pet-photo" src = "${pets.photo}"/>
     <h2 class='pet-name'>${pets.name} <span class='species'>(${pets.species})</span></h2>
     <p><strong>Age:</strong> ${Age(pets.birthYear)}</p>
-    ${pets.favFoods? foods(pets.favFoods) : ''}</div>`
+    ${pets.favFoods? foods(pets.favFoods,pets.id) : ''}</div>`
   }
   
   

@@ -10,7 +10,7 @@
     <section class="animal">
         <h1>Post Pets</h1>
         <div id="formularios">  
-            <form  method="POST" action="" id="formulario">
+            <form  method="POST" action="index.html" id="formulario">
                <fieldset><legend>Post Pets</legend>
                 <p><label for="nome">Nome:
                     <input type="text" name="nome" id="txt-nome" size="33" maxlength="35">
@@ -39,25 +39,37 @@
         </div>
         
     </section>
-    <div id="res">
-        Posts:
-    </div>
+
     <script>
 
-function salvarPetsData(event){
+function salvarPetsData(){
     //Obter os dados do formulário.
-    var data = { }
+    var petsData = { }
+    var favFoods = []
+    var Foods = []
+    var tamh = window.localStorage.length
+    var aux = 0
+    var id = 0
+    for(let i=0; i <= tamh; i++){
+        if(localStorage.key(i)== i){
+            aux= i+1
+        }else{ 
+            aux = i
+        }
+    }
 
-    data.nome = document.getElementById('txt-nome').value
-    data.especie = document.getElementById('txt-especie').value
-    data.food1 = document.getElementById('txt-food1').value
-    data.food2 = document.getElementById('txt-food2').value
-    data.food3 = document.getElementById('txt-food3').value
-    data.nasc = document.getElementById('txt-data-nasc').value
-    data.foto = document.getElementById('txt-foto').value
-    var msg = document.getElementById('res')
-     msg.innerHTML += `nome: ${data.nome}`
-     event.
+
+    petsData.name = document.getElementById('txt-nome').value
+    petsData.species = document.getElementById('txt-especie').value
+    Foods.push(document.getElementById('txt-food2').value)
+    Foods.push(document.getElementById('txt-food3').value)
+    Foods.push(document.getElementById('txt-food1').value)
+    petsData.favFoods = Foods
+    petsData.nasc = document.getElementById('txt-data-nasc').value
+    petsData.photo = document.getElementById('txt-foto').value
+    petsData.id = aux
+    window.localStorage.setItem(`${aux}`,JSON.stringify(petsData))
+     
   }
   
 
